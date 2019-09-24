@@ -1,7 +1,6 @@
 package com.bvan.movie.smoke;
 
 import com.bvan.movie.smoke.SimpleTestContainerSmokeTest.SpringInitializer;
-import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.util.TestPropertyValues;
@@ -15,7 +14,6 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-@Ignore
 @SpringBootTest
 @Testcontainers
 @Sql(scripts = "classpath:sql/clear-postgres.sql", executionPhase = ExecutionPhase.AFTER_TEST_METHOD)

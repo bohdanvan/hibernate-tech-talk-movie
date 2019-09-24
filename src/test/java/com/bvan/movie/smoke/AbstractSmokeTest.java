@@ -2,7 +2,7 @@ package com.bvan.movie.smoke;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.bvan.movie.util.TransactionHelper;
+import com.bvan.movie.util.TransactionTemplateHelper;
 import java.util.List;
 import javax.persistence.EntityManager;
 import org.junit.jupiter.api.Order;
@@ -15,7 +15,7 @@ abstract class AbstractSmokeTest {
     @Autowired
     private EntityManager entityManager;
     @Autowired
-    private TransactionHelper transactionHelper;
+    private TransactionTemplateHelper transactionTemplateHelper;
 
     @Test
     @Order(1)
@@ -34,13 +34,13 @@ abstract class AbstractSmokeTest {
     @Test
     @Order(3)
     void functionalTransaction_persist() {
-        transactionHelper.execute(this::persist);
+        transactionTemplateHelper.execute(this::persist);
     }
 
     @Test
     @Order(4)
     void functionalTransaction_verifyNoEntitiesInPersistentContext() {
-        transactionHelper.execute(this::verityNoEntities);
+        transactionTemplateHelper.execute(this::verityNoEntities);
     }
 
     private void persist() {
